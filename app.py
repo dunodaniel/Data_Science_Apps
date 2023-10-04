@@ -1,16 +1,27 @@
-"""
-This module contains a Flask application.
-"""
+from fastapi import FastAPI
+from starlette.middleware.wsgi import WSGIMiddleware
+from streamlit.report_thread import add_report_ctx
+from streamlit.server.server import Server
+import streamlit as st
 
-from flask import Flask
+app = FastAPI()
 
+# Configurar o Streamlit para operar no modo de servidor (server mode)
+st.set_option('server.port', 8501)
+server = Server.get_current()
+add_report_ctx(server)
 
+# Importar os aplicativos Streamlit
+import app1  # Importe seu primeiro aplicativo Streamlit (app1.py)
+#import app2  # Importe seu segundo aplicativo Streamlit (app2.py)
+# ...
+#import app12  # Importe seu décimo segundo aplicativo Streamlit (app12.py)
 
-app = Flask(__name__)
+# Definir rotas para cada aplicativo Streamlit
+@app.get('/app1')
+def run_app1():
+    return app1  # Substitua 'app1' pelo nome da função que inicia o aplicativo
 
-@app.route("/")
-def hello_world():
-    """
-    Returns a simple message to the user.
-    """
-    return "<p>Hello, World!</p>\n"
+if __name__ == '__main__':
+    import uvicorn
+    uvicorn.run(app, host='0.0.0.0', port=8000)
