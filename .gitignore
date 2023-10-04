@@ -1,4 +1,7 @@
 # My .gitignore file for Python projects
+venv/
+
+# My .gitignore file for Python projects
 .vscode/
 
 

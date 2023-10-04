@@ -1,7 +1,7 @@
 import yfinance as yf
 import streamlit as st
 
-def main():
+def exibir_projeto_1():
     st.write("""
     # Simple Stock Price App
 
@@ -26,6 +26,3 @@ def main():
     ## Volume Price
     """)
     st.line_chart(tickerDf.Volume)
-
-if __name__ == '__main__':
-    main()
