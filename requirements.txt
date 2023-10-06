@@ -1,4 +1,2 @@
 yfinance
 streamlit
-matplotlib
-seaborn

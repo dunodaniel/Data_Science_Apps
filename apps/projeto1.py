@@ -3,7 +3,7 @@ import streamlit as st
 
 def exibir_projeto_1():
     st.write("""
-    # Simple Stock Price App
+    # Google Stock Price App
 
     Shown are the stock **closing price** and ***volume*** of Google!
 
@@ -15,7 +15,7 @@ def exibir_projeto_1():
     #get data on this ticker
     tickerData = yf.Ticker(tickerSymbol)
     #get the historical prices for this ticker
-    tickerDf = tickerData.history(period='1d', start='2010-5-31', end='2020-5-31')
+    tickerDf = tickerData.history(period='1d', start='2013-9-30', end='2023-9-30')
     # Open	High	Low	Close	Volume	Dividends	Stock Splits
 
     st.write("""
